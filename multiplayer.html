@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplayer Settings</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/multiplayer.css">
+    <link href="favicons/settings.svg" rel="icon" type="image/x-icon" />
+</head>
+
+<body>
+    <header>
+        <h1>Multiplayer Mode: Configure settings</h1>
+    </header>
+    <div class="flexy">
+        <form name="myform" action="" method="get">
+            <span>Enable Time Mode </span><input type="checkbox" name="timeMode"> <br>
+            <p>How many turns do you want to play for ?</p>
+            <input class="namess" type="number" name="turns" min="3" max="15" value="5"> <br>
+            <p>How many players will be playing ?</p>
+            <input class="namess" type="number" name="players" min="2" max="6" value="2"> <br>
+            <input class="btn" type="button" name="Sbutton" value="Proceed Ahead" onclick="process(this.form)">
+        </form>
+        <button class="btn2" id="submitBtn" onclick="playGame(form)">Let's get the show started</button>
+    </div>
+    <script>
+        var useTime = false;
+        var turns = 5;
+        var players = 2;
+        var submitBtn = document.getElementById("submitBtn");
+        submitBtn.disabled = true;
+        submitBtn.style.display = "none";
+        var playGame = () => {
+            returnUrl = `game.html?mode=multiplayer?turns=${turns}?players=${players}?useTime=${useTime}`;
+            for (let i = 0; i < players; i++) {
+                var playerID = `player${i + 1}`;
+                var playerName = document.getElementById(playerID).value;
+                returnUrl = returnUrl.concat(`?${playerID}=${playerName}`);
+            }
+
+            console.log(returnUrl);
+            window.location.href = returnUrl;
+            // window.location.href = "index.html?mode=multiplayer";
+        }
+
+        var process = (form) => {
+            if (form.timeMode.checked) {
+                useTime = true;
+            }
+            else {
+                useTime = false;
+            }
+            turns = form.turns.value;
+            players = form.players.value;
+
+            for (let i = 0; i < players; i++) {
+                form.appendChild(document.createElement("br"));
+                var node = document.createElement("input");
+                node.type = "text";
+                node.name = `player${i + 1}`;
+                node.id = `player${i + 1}`
+                node.value = `player ${i + 1}`;
+                node.className = "namess";
+                form.appendChild(node);
+            }
+
+            form.Sbutton.disabled = true;
+            submitBtn.disabled = false;
+            submitBtn.style.display = "block";
+        }
+    </script>
+</body>
+
+</html>

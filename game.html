@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/game.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&display=swap" rel="stylesheet">
+    <link href="favicons/hangman.ico" rel="icon" type="image/x-icon" />
+    
+    <title>Hangman Game</title>
+</head>
+
+<body onload="newGame()">
+
+    <header>
+        <h1>HANGMAN : <span class="listName"></span></h1>
+    </header>
+
+    <div class="content">
+
+        <main>
+            <div class="guy-animation">
+                <canvas id="canvas" width="330" height="330"></canvas>
+            </div>
+            <div class="stats">
+                 <p class="timer">Time Left = <span id="minutes"></span><span id="seconds"></span></p>
+                <p class="turn"></p>
+                <p class="score">Your Current Score is: 0</p>
+                <p class="guessesLeft">Your Guesses Left: 10</p>
+                <p class="streak">Streak: 0</p>
+                <p class="highScore">Your High Score is: 0</p>
+                <p class="highStreak">The Streak for the High Score is: 0</p>
+            </div>
+        </main>
+
+        <aside>
+            <div class="msgBox">
+                <div id="wordTodo">
+                </div>
+    
+                <div id="msg-int">
+                </div>
+            </div>
+
+            <div class="btn-box">
+                <button id="A" onclick="btn_clicked(this.id)">A</button>
+                <button id="B" onclick="btn_clicked(this.id)">B</button>
+                <button id="C" onclick="btn_clicked(this.id)">C</button>
+                <button id="D" onclick="btn_clicked(this.id)">D</button>
+                <button id="E" onclick="btn_clicked(this.id)">E</button>
+                <button id="F" onclick="btn_clicked(this.id)">F</button>
+                <button id="G" onclick="btn_clicked(this.id)">G</button>
+                <button id="H" onclick="btn_clicked(this.id)">H</button>
+                <button id="I" onclick="btn_clicked(this.id)">I</button>
+                <button id="J" onclick="btn_clicked(this.id)">J</button>
+                <button id="K" onclick="btn_clicked(this.id)">K</button>
+                <button id="L" onclick="btn_clicked(this.id)">L</button>
+                <button id="M" onclick="btn_clicked(this.id)">M</button>
+                <button id="N" onclick="btn_clicked(this.id)">N</button>
+                <button id="O" onclick="btn_clicked(this.id)">O</button>
+                <button id="P" onclick="btn_clicked(this.id)">P</button>
+                <button id="Q" onclick="btn_clicked(this.id)">Q</button>
+                <button id="R" onclick="btn_clicked(this.id)">R</button>
+                <button id="S" onclick="btn_clicked(this.id)">S</button>
+                <button id="T" onclick="btn_clicked(this.id)">T</button>
+                <button id="U" onclick="btn_clicked(this.id)">U</button>
+                <button id="V" onclick="btn_clicked(this.id)">V</button>
+                <button id="W" onclick="btn_clicked(this.id)">W</button>
+                <button id="X" onclick="btn_clicked(this.id)">X</button>
+                <button id="Y" onclick="btn_clicked(this.id)">Y</button>
+                <button id="Z" onclick="btn_clicked(this.id)">Z</button>
+            </div>
+
+            <div class="btns">
+                <button id="nextMove" onclick="nextWord()">Next Word</button>
+                <button id="newGame" onclick="newGame()">Play New Game</button>
+                <button id="displayMultiResults" onclick="displayResults()">Display Results</button>
+                <button id="goHome" onclick="goHomes()">Back to Home</button>
+            </div>
+
+            <div class="highscore">
+                <span class="celebrate"> Congratulations !! You have reached a New High Score.</span>
+            </div>
+
+            <div class="gameCleared">
+                <span>
+                    Well well well, you were actually able to guess all those words and managed to clear the game. Damn.
+                    Now that's some feat. You may be wondering "what to do next ?". Upto you champ, you can replay this
+                    mode as much as you like
+                    and try to break your own highscore, or go back to home and play some other mode. Thanks for playing :)
+                </span>
+            </div>
+
+        </aside>
+
+    </div>
+
+    <audio id="gameOver" src="sounds/mixkit-retro-arcade-lose-2027.wav"></audio>
+    <audio id="rightClick" src="sounds/mixkit-positive-interface-beep-221.wav"></audio>
+    <audio id="wrongClick" src="sounds/mixkit-computer-digital-lock-2859.wav"></audio>
+    <audio id="moveCleared" src="sounds/mixkit-video-game-win-2016.wav"></audio>
+    <audio id="newHighScore" src="sounds/mixkit-game-level-completed-2059.wav"></audio>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

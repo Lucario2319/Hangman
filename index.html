@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hangman: home</title>
+    <link rel="stylesheet" href="styles/home.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&display=swap" rel="stylesheet">
+    <link href="favicons/home.svg" rel="icon" type="image/x-icon" />
+</head>
+
+<body>
+    <header>
+        <h1>
+            Welcome to Hangman
+            <p>~ made by Abdul Rafay</p>
+        </h1>
+        <p>Choose your desired mode</p>
+    </header>
+    <main>
+        <div class="container">
+            <div class="card">
+                <div class="face face1 survival">
+                    <div class="content">
+                        <h3>Survival Mode</h3>
+                    </div>
+                </div>
+                <div class="face face2">
+                    <div class="content">
+                        <p>
+                            In this mode, you'll be playing without any time restrictions. Your main goal is to guess as
+                            many words as possible until it's game over. You can compete with your own High Score. Can
+                            you guess em all ?
+                        </p>
+                        <a onclick="playSurvival()">Play Survival Mode</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="face face1 timerush">
+                    <div class="content">
+                        <h3>Time Rush</h3>
+                    </div>
+                </div>
+                <div class="face face2">
+                    <div class="content">
+                        <p>
+                            Pretty much the same thing as survival but with a time limit for each word. You think it's
+                            easy ?
+                            What if I told you that the time limit will eventually keep reducing as your streak reaches
+                            a certain threshold ?
+                            Still up for challenge ?
+                        </p>
+                        <a onclick="playTimerush()">Play Time Rush Mode</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="face face1 multiplayer">
+                    <div class="content">
+                        <h3>Multiplayer</h3>
+                    </div>
+                </div>
+                <div class="face face2">
+                    <div class="content">
+                        <p>
+                            Feeling a bit lonely playing by yourself ?
+                            Ask a friend to tag along to see who's the best at this game.
+                            In this mode, you can play between 2-6 players, and compete to see who scores
+                            the highest within the max number of chosen turns.
+                        </p>
+                        <a onclick="playMultiplayer()">Play Multiplayer Mode</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>
+        var playSurvival = ()=> {
+            window.location.href = "game.html?mode=survival";
+        }
+        var playTimerush = ()=> {
+            window.location.href = "game.html?mode=timerush";
+        }
+        var playMultiplayer = ()=> {
+            window.location.href = "multiplayer.html";
+        }
+    </script>
+</body>
+
+</html>

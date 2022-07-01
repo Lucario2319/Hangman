@@ -490,11 +490,11 @@ var initialize = () => {
         hiSt.innerHTML = `The Streak for the High Score is: ${timeHighStreak}`;
         countdown();
         timer.style.display = "block";
-        if (streak <= 10) {
+        if (streak <= 15) {
             mins = 2;
             secs = mins * 60;
         }
-        if (streak >= 20) {
+        if (streak > 15) {
             mins = 2
             secs = mins * 45;
         }
@@ -502,11 +502,11 @@ var initialize = () => {
             mins = 2
             secs = mins * 37.5;
         }
-        if (streak >= 40) {
+        if (streak >= 50) {
             mins = 1;
             secs = mins * 60;
         }
-        if (streak >= 50) {
+        if (streak >= 100) {
             mins = 0;
             secs = 30;
         }
